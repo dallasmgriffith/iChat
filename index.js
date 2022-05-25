@@ -3,27 +3,29 @@ process.env.DEBUG = '*'
 
 
 // Import Dependencies
-const express = require('express')
-const db = require('mongoose')
+const Express = require('express')
+const Database = require("@replit/database")
 
 
-// MongoDB Setup
-const Schema = db.Schema
-db.connect(`mongodb+srv://iChat-US:${process.env.mongoPassKey}@ichat.vnrj6.mongodb.net/?retryWrites=true&w=majority`)
-
-
-//MongoDB Model Import
-const User = require('./models/User')
-const Message = require('./models/Message')
+// DB Setup
+const db = new Database()
 
 
 // Server Setup
-const app = express()
+const app = Express()
 
 
 // Server Startup
-app.get('/api', (req, res) => {
+app.get('/api/:page/:mode', (req, res) => {
 	// Run API
+	const { params, query } = req
+	
+	switch (params.page) {
+		case "accounts": 
+			switch(params.mode) {
+				case "login"
+			}
+	}
 })
 
 app.listen(80, () => {})
