@@ -1,7 +1,6 @@
 // DEBUG
 process.env.DEBUG = '*'
 
-
 // Import Dependencies
 const express = require('express')
 const cors = require('cors')
@@ -12,12 +11,12 @@ const db = require('mongoose')
 db.connect(`mongodb+srv://iChat-US:${process.env.mongo_key}@ichat.vnrj6.mongodb.net/?retryWrites=true&w=majority`)
 db.set('debug', true)
 
+
 // Server Setup
 const app = express()
 app.use(express.urlencoded())
 app.use(express.json())
 app.use(cors())
-
 
 // Server Startup
 app.get('/', (req, res) => {
